@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Report Simplifier</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Card */
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 18px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            border: none;
+            background: none;
+            font-size: 1rem;
+        }
+
+        .tab:hover {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: -2px;
+        }
+
+        .tab-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            padding: 30px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* File Upload Area */
+        .upload-area {
+            border: 3px dashed #dee2e6;
+            border-radius: 15px;
+            padding: 50px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .upload-area:hover {
+            border-color: #667eea;
+            background: #f0f3ff;
+        }
+
+        .upload-area.dragover {
+            border-color: #667eea;
+            background: #e8edff;
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .upload-area h3 {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+
+        .upload-area p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .supported-formats {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .format-badge {
+            background: #e9ecef;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        /* Selected File */
+        .selected-file {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            background: #e8f5e9;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .selected-file.show {
+            display: flex;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .file-info span {
+            font-size: 2rem;
+        }
+
+        .file-details h4 {
+            color: #2e7d32;
+            font-size: 0.95rem;
+        }
+
+        .file-details p {
+            color: #558b2f;
+            font-size: 0.8rem;
+        }
+
+        .remove-file {
+            background: #ffebee;
+            border: none;
+            color: #c62828;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .remove-file:hover {
+            background: #ffcdd2;
+        }
+
+        /* Text Area */
+        .text-area {
+            width: 100%;
+            min-height: 200px;
+            padding: 20px;
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        .text-area:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .text-area::placeholder {
+            color: #adb5bd;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #adb5bd;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Results Section */
+        .results-section {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .results-section.show {
+            display: block;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .results-header h2 {
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .clear-btn {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #6c757d;
+            transition: all 0.3s ease;
+        }
+
+        .clear-btn:hover {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        /* Summary Card */
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .summary-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .summary-card p {
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Test Results Table */
+        .table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 12px;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .results-table th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .results-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+            color: #333;
+        }
+
+        .results-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .results-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Status Badges */
+        .status-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-normal {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-low {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .status-high {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        /* Error Message */
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 20px;
+            border-radius: 12px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .error-message h4 {
+            margin-bottom: 8px;
+        }
+
+        /* Explanations */
+        .explanations {
+            margin-top: 25px;
+        }
+
+        .explanations h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .explanation-item {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .explanation-item h4 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .explanation-item p {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Rich Report Styles */
+        .rich-report {
+            margin-top: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .report-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .report-header h2 {
+            margin: 0 0 8px 0;
+            font-size: 1.5rem;
+        }
+
+        .report-header .report-date {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .overall-status {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .status-all-clear {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-attention {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-review {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .overall-message {
+            color: #555;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .patient-info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .patient-info-card h3 {
+            margin: 0 0 15px 0;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .patient-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .patient-detail {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .patient-detail .label {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .patient-detail .value {
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .report-section {
+            padding: 25px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .report-section:last-child {
+            border-bottom: none;
+        }
+
+        .report-section h3 {
+            margin: 0 0 15px 0;
+            color: #333;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .report-section h3 .icon {
+            font-size: 1.3rem;
+        }
+
+        /* Test Overview Cards */
+        .test-overview-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .test-overview-card h4 {
+            margin: 0 0 8px 0;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .test-overview-card p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Interpretation Cards */
+        .interpretation-card {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .interpretation-card.normal {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .interpretation-card.low {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+        }
+
+        .interpretation-card.high {
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+
+        .interpretation-card h4 {
+            margin: 0 0 8px 0;
+            color: #333;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .interpretation-card p {
+            margin: 0;
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Key Concepts */
+        .concept-card {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .concept-card .term {
+            font-weight: 600;
+            color: #1565c0;
+            margin-bottom: 5px;
+        }
+
+        .concept-card .definition {
+            color: #333;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Causes Section */
+        .causes-card {
+            background: #fce4ec;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .causes-card h4 {
+            margin: 0 0 10px 0;
+            color: #c2185b;
+            font-size: 0.95rem;
+        }
+
+        .causes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .causes-list li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .causes-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #c2185b;
+        }
+
+        /* Recommendations */
+        .recommendation-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .recommendation-item .icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .recommendation-item p {
+            margin: 0;
+            color: #333;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Summary Stats */
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .stat-box .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-box .label {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .stat-box.normal .number {
+            color: #4caf50;
+        }
+
+        .stat-box.abnormal .number {
+            color: #f44336;
+        }
+
+        /* Download/Print Button */
+        .report-actions {
+            padding: 20px;
+            background: #f8f9fa;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .action-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .action-btn.secondary {
+            background: white;
+            color: #667eea;
+            border: 1px solid #667eea;
+        }
+
+        .action-btn.secondary:hover {
+            background: #f0f3ff;
+        }
+
+        /* Responsive - Large Tablets */
+        @media (max-width: 992px) {
+            .container {
+                max-width: 95%;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tab-content {
+                padding: 25px;
+            }
+        }
+
+        /* Responsive - Tablets */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .header {
+                margin-bottom: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.9rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .tab {
+                padding: 14px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .tab-icon {
+                font-size: 1.3rem;
+                margin-bottom: 3px;
+            }
+            
+            .tab-content {
+                padding: 20px;
+            }
+            
+            .upload-area {
+                padding: 35px 20px;
+            }
+            
+            .upload-icon {
+                font-size: 3rem;
+            }
+            
+            .submit-btn {
+                padding: 15px;
+                font-size: 1rem;
+            }
+            
+            .summary-card {
+                padding: 20px;
+            }
+            
+            .summary-card h3 {
+                font-size: 1.1rem;
+            }
+            
+            /* Mobile-friendly table */
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 0 -20px;
+                padding: 0 20px;
+            }
+            
+            .results-table {
+                min-width: 500px;
+            }
+            
+            .results-table th,
+            .results-table td {
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                margin-bottom: 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.6rem;
+                line-height: 1.3;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+
+            .card {
+                border-radius: 15px;
+            }
+
+            .tab {
+                padding: 12px 6px;
+                font-size: 0.8rem;
+            }
+
+            .tab-icon {
+                font-size: 1.1rem;
+                margin-bottom: 2px;
+            }
+
+            .tab-content {
+                padding: 15px;
+            }
+
+            .upload-area {
+                padding: 25px 12px;
+                border-width: 2px;
+            }
+            
+            .upload-area h3 {
+                font-size: 1rem;
+            }
+            
+            .upload-area p {
+                font-size: 0.8rem;
+            }
+            
+            .upload-icon {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .supported-formats {
+                gap: 6px;
+            }
+            
+            .format-badge {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+            }
+
+            .selected-file {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+                padding: 12px 15px;
+            }
+            
+            .file-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .file-details h4 {
+                font-size: 0.85rem;
+            }
+            
+            .text-area {
+                min-height: 160px;
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .submit-btn {
+                padding: 14px;
+                font-size: 0.95rem;
+                margin-top: 20px;
+            }
+            
+            .results-header {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+            
+            .results-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .clear-btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .summary-card {
+                padding: 18px;
+                border-radius: 12px;
+            }
+            
+            .summary-card h3 {
+                font-size: 1rem;
+            }
+            
+            .summary-card p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .results-table th,
+            .results-table td {
+                padding: 10px 8px;
+                font-size: 0.8rem;
+            }
+            
+            .status-badge {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+            }
+            
+            .explanation-item {
+                padding: 12px 15px;
+                border-radius: 8px;
+            }
+            
+            .explanation-item h4 {
+                font-size: 0.9rem;
+            }
+            
+            .explanation-item p {
+                font-size: 0.85rem;
+            }
+            
+            .explanations h3 {
+                font-size: 1.1rem;
+            }
+            
+            .error-message {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Responsive - Small Mobile */
+        @media (max-width: 400px) {
+            body {
+                padding: 8px;
+            }
+            
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .header p {
+                font-size: 0.85rem;
+            }
+            
+            .tab {
+                padding: 10px 4px;
+                font-size: 0.75rem;
+            }
+            
+            .tab-icon {
+                font-size: 1rem;
+            }
+            
+            .tab-content {
+                padding: 12px;
+            }
+            
+            .upload-area {
+                padding: 20px 10px;
+            }
+            
+            .upload-icon {
+                font-size: 2rem;
+            }
+            
+            .text-area {
+                min-height: 140px;
+                padding: 12px;
+            }
+            
+            .submit-btn {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .tab {
+                min-height: 60px;
+            }
+            
+            .submit-btn {
+                min-height: 54px;
+            }
+            
+            .remove-file {
+                width: 44px;
+                height: 44px;
+                font-size: 1.4rem;
+            }
+            
+            .clear-btn {
+                min-height: 44px;
+                padding: 12px 20px;
+            }
+            
+            .sample-btn {
+                min-height: 44px;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .header {
+                color: #333;
+            }
+            
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            
+            .tabs, .submit-btn, .clear-btn, .sample-btn, 
+            #upload-tab, #text-tab, .error-message {
+                display: none !important;
+            }
+            
+            .results-section {
+                display: block !important;
+            }
+            
+            .summary-card {
+                background: #f8f9fa;
+                color: #333;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* Landscape orientation for mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .header {
+                margin-bottom: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .header p {
+                display: none;
+            }
+            
+            .upload-area {
+                padding: 20px 15px;
+            }
+            
+            .upload-icon {
+                font-size: 2rem;
+                margin-bottom: 8px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus states for accessibility */
+        .tab:focus,
+        .submit-btn:focus,
+        .clear-btn:focus,
+        .sample-btn:focus,
+        .text-area:focus,
+        .remove-file:focus {
+            outline: 3px solid rgba(102, 126, 234, 0.5);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            }
+            
+            .card {
+                background: #1e1e2f;
+                color: #e0e0e0;
+            }
+            
+            .tabs {
+                background: #252538;
+                border-color: #3a3a4e;
+            }
+            
+            .tab {
+                color: #a0a0b0;
+            }
+            
+            .tab:hover {
+                background: #3a3a4e;
+                color: #e0e0e0;
+            }
+            
+            .tab.active {
+                background: #1e1e2f;
+                color: #818cf8;
+                border-color: #818cf8;
+            }
+            
+            .upload-area {
+                background: #252538;
+                border-color: #3a3a4e;
+            }
+            
+            .upload-area:hover {
+                border-color: #818cf8;
+                background: #2a2a40;
+            }
+            
+            .upload-area h3,
+            .upload-area p {
+                color: #c0c0d0;
+            }
+            
+            .format-badge {
+                background: #3a3a4e;
+                color: #c0c0d0;
+            }
+            
+            .selected-file {
+                background: #1a3a2a;
+            }
+            
+            .file-details h4 {
+                color: #4ade80;
+            }
+            
+            .file-details p {
+                color: #6ee7b7;
+            }
+            
+            .text-area {
+                background: #252538;
+                border-color: #3a3a4e;
+                color: #e0e0e0;
+            }
+            
+            .text-area::placeholder {
+                color: #6b6b80;
+            }
+            
+            .text-area:focus {
+                border-color: #818cf8;
+            }
+            
+            .results-header h2 {
+                color: #e0e0e0;
+            }
+            
+            .clear-btn {
+                background: #252538;
+                border-color: #3a3a4e;
+                color: #a0a0b0;
+            }
+            
+            .clear-btn:hover {
+                background: #3a3a4e;
+                color: #e0e0e0;
+            }
+            
+            .results-table {
+                background: #252538;
+            }
+            
+            .results-table th {
+                background: #1a1a2e;
+                color: #c0c0d0;
+                border-color: #3a3a4e;
+            }
+            
+            .results-table td {
+                color: #e0e0e0;
+                border-color: #3a3a4e;
+            }
+            
+            .results-table tr:hover {
+                background: #2a2a40;
+            }
+            
+            .explanation-item {
+                background: #252538;
+                border-left-color: #818cf8;
+            }
+            
+            .explanation-item h4 {
+                color: #e0e0e0;
+            }
+            
+            .explanation-item p {
+                color: #a0a0b0;
+            }
+            
+            .explanations h3 {
+                color: #e0e0e0;
+            }
+            
+            .error-message {
+                background: #3a1a1a;
+                color: #f87171;
+            }
+            
+            .sample-btn {
+                border-color: #818cf8;
+                color: #818cf8;
+            }
+            
+            .sample-btn:hover {
+                background: #818cf8;
+                color: white;
+            }
+        }
+
+        /* Sample Data Button */
+        .sample-btn {
+            background: none;
+            border: 1px solid #667eea;
+            color: #667eea;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .sample-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🏥 Medical Report Simplifier</h1>
+            <p>Upload your medical report and get easy-to-understand results</p>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="upload">
+                    <span class="tab-icon">📄</span>
+                    File Upload
+                </button>
+                <button class="tab" data-tab="text">
+                    <span class="tab-icon">✍️</span>
+                    Paste Text
+                </button>
+            </div>
+
+            <!-- File Upload Tab -->
+            <div class="tab-content active" id="upload-tab">
+                <div class="upload-area" id="dropZone">
+                    <div class="upload-icon">📁</div>
+                    <h3>Drag & Drop your file here</h3>
+                    <p>or click to browse</p>
+                    <div class="supported-formats">
+                        <span class="format-badge">JPG</span>
+                        <span class="format-badge">PNG</span>
+                        <span class="format-badge">PDF</span>
+                        <span class="format-badge">BMP</span>
+                        <span class="format-badge">TIFF</span>
+                    </div>
+                    <input type="file" class="file-input" id="fileInput" 
+                           accept=".jpg,.jpeg,.png,.pdf,.bmp,.tiff,.tif">
+                </div>
+
+                <div class="selected-file" id="selectedFile">
+                    <div class="file-info">
+                        <span id="fileIcon">📄</span>
+                        <div class="file-details">
+                            <h4 id="fileName">filename.pdf</h4>
+                            <p id="fileSize">2.5 MB</p>
+                        </div>
+                    </div>
+                    <button class="remove-file" id="removeFile">✕</button>
+                </div>
+
+                <button class="submit-btn" id="uploadBtn" disabled>
+                    <span class="spinner" id="uploadSpinner"></span>
+                    <span>🔍 Analyze Report</span>
+                </button>
+            </div>
+
+            <!-- Text Input Tab -->
+            <div class="tab-content" id="text-tab">
+                <button class="sample-btn" id="sampleBtn">📋 Load Sample Data</button>
+                <textarea class="text-area" id="reportText" 
+                    placeholder="Paste your medical report text here...
+
+Example:
+Hemoglobin: 12.5 g/dL
+WBC Count: 8500 /uL
+RBC Count: 4.8 million/uL
+Platelet Count: 250000 /uL
+Glucose (Fasting): 95 mg/dL
+Cholesterol: 185 mg/dL"></textarea>
+
+                <button class="submit-btn" id="textBtn">
+                    <span class="spinner" id="textSpinner"></span>
+                    <span>🔍 Analyze Report</span>
+                </button>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage">
+                <h4>⚠️ Error</h4>
+                <p id="errorText"></p>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2>📊 Analysis Results</h2>
+                    <button class="clear-btn" id="clearBtn">Clear Results</button>
+                </div>
+
+                <!-- Summary -->
+                <div class="summary-card" id="summaryCard">
+                    <h3>📝 Summary</h3>
+                    <p id="summaryText"></p>
+                </div>
+
+                <!-- Test Results Table -->
+                <div class="table-container">
+                    <table class="results-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Test Name</th>
+                                <th>Value</th>
+                                <th>Unit</th>
+                                <th>Reference Range</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Explanations -->
+                <div class="explanations" id="explanations">
+                    <h3>💡 What This Means</h3>
+                    <div id="explanationsList"></div>
+                </div>
+
+                <!-- Rich AI Report -->
+                <div class="rich-report" id="richReport" style="display: none;">
+                    <div class="report-header">
+                        <h2 id="reportTitle">Medical Report Summary</h2>
+                        <p class="report-date" id="reportDate"></p>
+                    </div>
+
+                    <div class="overall-status" id="overallStatus">
+                        <div class="status-indicator" id="statusIndicator"></div>
+                        <p class="overall-message" id="overallMessage"></p>
+                    </div>
+
+                    <div class="patient-info-card">
+                        <h3>👤 Patient Information</h3>
+                        <div class="patient-details" id="patientDetails"></div>
+                    </div>
+
+                    <div class="report-section" id="summaryStatsSection">
+                        <h3><span class="icon">📊</span> Summary Statistics</h3>
+                        <div class="summary-stats" id="summaryStats"></div>
+                    </div>
+
+                    <div class="report-section" id="testOverviewSection">
+                        <h3><span class="icon">🔬</span> Test Overview</h3>
+                        <div id="testOverviews"></div>
+                    </div>
+
+                    <div class="report-section" id="interpretationsSection">
+                        <h3><span class="icon">📋</span> Interpretation</h3>
+                        <div id="interpretations"></div>
+                    </div>
+
+                    <div class="report-section" id="keyConcepts">
+                        <h3><span class="icon">📖</span> Key Concepts Explained</h3>
+                        <div id="conceptsList"></div>
+                    </div>
+
+                    <div class="report-section" id="abnormalCausesSection" style="display: none;">
+                        <h3><span class="icon">⚠️</span> Possible Causes for Abnormal Results</h3>
+                        <div id="abnormalCauses"></div>
+                    </div>
+
+                    <div class="report-section" id="recommendationsSection">
+                        <h3><span class="icon">💊</span> Recommendations</h3>
+                        <div id="recommendations"></div>
+                    </div>
+
+                    <div class="report-actions">
+                        <button class="action-btn primary" onclick="window.print()">
+                            🖨️ Print Report
+                        </button>
+                        <button class="action-btn secondary" onclick="copyReport()">
+                            📋 Copy Summary
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+
+        // DOM Elements
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const selectedFile = document.getElementById('selectedFile');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const fileIcon = document.getElementById('fileIcon');
+        const removeFile = document.getElementById('removeFile');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const uploadSpinner = document.getElementById('uploadSpinner');
+        const reportText = document.getElementById('reportText');
+        const textBtn = document.getElementById('textBtn');
+        const textSpinner = document.getElementById('textSpinner');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorText = document.getElementById('errorText');
+        const resultsSection = document.getElementById('resultsSection');
+        const summaryText = document.getElementById('summaryText');
+        const resultsBody = document.getElementById('resultsBody');
+        const explanationsList = document.getElementById('explanationsList');
+        const clearBtn = document.getElementById('clearBtn');
+        const sampleBtn = document.getElementById('sampleBtn');
+
+        let selectedFileData = null;
+
+        // Tab Switching
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                const tabId = tab.dataset.tab + '-tab';
+                document.getElementById(tabId).classList.add('active');
+                
+                hideError();
+                hideResults();
+            });
+        });
+
+        // Drag and Drop
+        dropZone.addEventListener('click', () => fileInput.click());
+        
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        // Handle File Selection
+        function handleFile(file) {
+            const validTypes = ['image/jpeg', 'image/png', 'image/bmp', 'image/tiff', 'application/pdf'];
+            const ext = file.name.split('.').pop().toLowerCase();
+            const validExts = ['jpg', 'jpeg', 'png', 'bmp', 'tiff', 'tif', 'pdf'];
+
+            if (!validExts.includes(ext)) {
+                showError('Invalid file type. Please upload JPG, PNG, PDF, BMP, or TIFF files.');
+                return;
+            }
+
+            selectedFileData = file;
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            
+            // Set icon based on file type
+            if (ext === 'pdf') {
+                fileIcon.textContent = '📕';
+            } else {
+                fileIcon.textContent = '🖼️';
+            }
+
+            selectedFile.classList.add('show');
+            uploadBtn.disabled = false;
+            hideError();
+        }
+
+        // Remove File
+        removeFile.addEventListener('click', () => {
+            selectedFileData = null;
+            fileInput.value = '';
+            selectedFile.classList.remove('show');
+            uploadBtn.disabled = true;
+        });
+
+        // Format File Size
+        function formatFileSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+
+        // Sample Data
+        sampleBtn.addEventListener('click', () => {
+            reportText.value = `COMPLETE BLOOD COUNT (CBC) REPORT
+
+Patient Name: Demo Patient
+Date: December 10, 2025
+
+TEST RESULTS:
+
+Hemoglobin: 11.2 g/dL (Reference: 12.0-17.5)
+Total RBC Count: 4.5 million/uL (Reference: 4.0-6.0)
+Total WBC Count: 12500 /uL (Reference: 4000-11000)
+Platelet Count: 280000 /uL (Reference: 150000-400000)
+Hematocrit (PCV): 38 % (Reference: 36-54)
+MCV: 84 fL (Reference: 80-100)
+MCH: 28 pg (Reference: 27-33)
+MCHC: 33.5 g/dL (Reference: 32-36)
+
+LIPID PROFILE:
+Total Cholesterol: 220 mg/dL (Reference: 0-200)
+LDL Cholesterol: 145 mg/dL (Reference: 0-130)
+HDL Cholesterol: 45 mg/dL (Reference: 40-60)
+Triglycerides: 160 mg/dL (Reference: 0-150)
+
+BLOOD SUGAR:
+Glucose (Fasting): 110 mg/dL (Reference: 70-100)
+
+LIVER FUNCTION:
+AST (SGOT): 35 U/L (Reference: 10-40)
+ALT (SGPT): 42 U/L (Reference: 7-56)
+
+KIDNEY FUNCTION:
+Creatinine: 1.0 mg/dL (Reference: 0.6-1.2)
+Blood Urea Nitrogen: 18 mg/dL (Reference: 7-20)`;
+        });
+
+        // Upload File
+        uploadBtn.addEventListener('click', async () => {
+            if (!selectedFileData) return;
+
+            setLoading(uploadBtn, uploadSpinner, true);
+            hideError();
+            hideResults();
+
+            const formData = new FormData();
+            formData.append('file', selectedFileData);
+
+            try {
+                const response = await fetch(`${API_URL}/simplify-report`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.status === 'ok') {
+                    displayResults(data);
+                } else {
+                    showError(data.message || data.error || 'Failed to process the report');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Failed to connect to server. Make sure the API is running on ' + API_URL);
+            } finally {
+                setLoading(uploadBtn, uploadSpinner, false);
+            }
+        });
+
+        // Submit Text
+        textBtn.addEventListener('click', async () => {
+            const text = reportText.value.trim();
+            
+            if (!text) {
+                showError('Please enter or paste your report text');
+                return;
+            }
+
+            setLoading(textBtn, textSpinner, true);
+            hideError();
+            hideResults();
+
+            try {
+                const formData = new URLSearchParams();
+                formData.append('text', text);
+
+                const response = await fetch(`${API_URL}/simplify-report-text`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.status === 'ok') {
+                    displayResults(data);
+                } else {
+                    showError(data.message || data.error || 'Failed to process the report');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Failed to connect to server. Make sure the API is running on ' + API_URL);
+            } finally {
+                setLoading(textBtn, textSpinner, false);
+            }
+        });
+
+        // Display Results
+        function displayResults(data) {
+            // Summary
+            summaryText.textContent = data.summary || 'Report analyzed successfully.';
+
+            // Test Results Table
+            resultsBody.innerHTML = '';
+            
+            if (data.tests && data.tests.length > 0) {
+                data.tests.forEach(test => {
+                    const row = document.createElement('tr');
+                    
+                    const status = test.test_status || test.status || 'normal';
+                    const statusClass = `status-${status.toLowerCase()}`;
+                    const statusText = status.charAt(0).toUpperCase() + status.slice(1);
+                    
+                    let refRange = '-';
+                    if (test.ref_range) {
+                        refRange = `${test.ref_range.low} - ${test.ref_range.high}`;
+                    }
+
+                    row.innerHTML = `
+                        <td><strong>${test.name || 'Unknown'}</strong></td>
+                        <td>${test.value !== null ? test.value : '-'}</td>
+                        <td>${test.unit || '-'}</td>
+                        <td>${refRange}</td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                    `;
+                    
+                    resultsBody.appendChild(row);
+                });
+            } else {
+                resultsBody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#6c757d;">No tests found in the report</td></tr>';
+            }
+
+            // Explanations
+            explanationsList.innerHTML = '';
+            
+            if (data.explanations && data.explanations.length > 0) {
+                data.explanations.forEach(exp => {
+                    const div = document.createElement('div');
+                    div.className = 'explanation-item';
+                    div.innerHTML = `
+                        <h4>${exp.test_name} - ${exp.status ? exp.status.charAt(0).toUpperCase() + exp.status.slice(1) : 'Normal'}</h4>
+                        <p>${exp.explanation}</p>
+                    `;
+                    explanationsList.appendChild(div);
+                });
+            } else {
+                document.getElementById('explanations').style.display = 'none';
+            }
+
+            // Display Rich Report if available
+            if (data.report) {
+                displayRichReport(data.report);
+            }
+
+            resultsSection.classList.add('show');
+            
+            // Scroll to results
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Display Rich AI Report
+        function displayRichReport(report) {
+            const richReport = document.getElementById('richReport');
+            richReport.style.display = 'block';
+
+            // Report Title & Date
+            document.getElementById('reportTitle').textContent = report.title || 'Medical Report Summary';
+            document.getElementById('reportDate').textContent = `Generated on: ${new Date(report.generated_at).toLocaleString()}`;
+
+            // Overall Status
+            const statusIndicator = document.getElementById('statusIndicator');
+            const overallStatus = report.overall_status || 'Unknown';
+            statusIndicator.textContent = overallStatus;
+            statusIndicator.className = 'status-indicator';
+            
+            if (overallStatus === 'All Clear') {
+                statusIndicator.classList.add('status-all-clear');
+            } else if (overallStatus === 'Attention Needed') {
+                statusIndicator.classList.add('status-attention');
+            } else {
+                statusIndicator.classList.add('status-review');
+            }
+            
+            document.getElementById('overallMessage').textContent = report.overall_message || '';
+
+            // Patient Info
+            const patientDetails = document.getElementById('patientDetails');
+            const patient = report.patient_info || {};
+            patientDetails.innerHTML = `
+                <div class="patient-detail">
+                    <span class="label">Name</span>
+                    <span class="value">${patient.name || 'N/A'}</span>
+                </div>
+                <div class="patient-detail">
+                    <span class="label">Age</span>
+                    <span class="value">${patient.age || 'N/A'}</span>
+                </div>
+                <div class="patient-detail">
+                    <span class="label">Sex</span>
+                    <span class="value">${patient.sex || 'N/A'}</span>
+                </div>
+                <div class="patient-detail">
+                    <span class="label">Report Date</span>
+                    <span class="value">${patient.date || 'N/A'}</span>
+                </div>
+                <div class="patient-detail">
+                    <span class="label">Referred By</span>
+                    <span class="value">${patient.referred_by || 'N/A'}</span>
+                </div>
+            `;
+
+            // Summary Stats
+            const summaryStats = document.getElementById('summaryStats');
+            const stats = report.summary_stats || {};
+            summaryStats.innerHTML = `
+                <div class="stat-box">
+                    <div class="number">${stats.total_tests || 0}</div>
+                    <div class="label">Total Tests</div>
+                </div>
+                <div class="stat-box normal">
+                    <div class="number">${stats.normal_count || 0}</div>
+                    <div class="label">Normal</div>
+                </div>
+                <div class="stat-box abnormal">
+                    <div class="number">${stats.abnormal_count || 0}</div>
+                    <div class="label">Abnormal</div>
+                </div>
+            `;
+
+            // Test Overviews
+            const testOverviews = document.getElementById('testOverviews');
+            testOverviews.innerHTML = '';
+            if (report.test_overviews && report.test_overviews.length > 0) {
+                report.test_overviews.forEach(overview => {
+                    const div = document.createElement('div');
+                    div.className = 'test-overview-card';
+                    div.innerHTML = `
+                        <h4>🔹 ${overview.name}</h4>
+                        <p><strong>Purpose:</strong> ${overview.importance}</p>
+                        <p>${overview.description}</p>
+                    `;
+                    testOverviews.appendChild(div);
+                });
+            }
+
+            // Interpretations
+            const interpretations = document.getElementById('interpretations');
+            interpretations.innerHTML = '';
+            if (report.interpretations && report.interpretations.length > 0) {
+                report.interpretations.forEach(interp => {
+                    const div = document.createElement('div');
+                    div.className = `interpretation-card ${interp.status}`;
+                    const statusIcon = interp.status === 'normal' ? '✅' : (interp.status === 'high' ? '🔺' : '🔻');
+                    div.innerHTML = `
+                        <h4>${statusIcon} ${interp.test_name}</h4>
+                        <p>${interp.interpretation}</p>
+                    `;
+                    interpretations.appendChild(div);
+                });
+            }
+
+            // Key Concepts
+            const conceptsList = document.getElementById('conceptsList');
+            conceptsList.innerHTML = '';
+            if (report.key_concepts && report.key_concepts.length > 0) {
+                report.key_concepts.forEach(concept => {
+                    const div = document.createElement('div');
+                    div.className = 'concept-card';
+                    div.innerHTML = `
+                        <div class="term">📘 ${concept.term}</div>
+                        <div class="definition">${concept.definition}</div>
+                    `;
+                    conceptsList.appendChild(div);
+                });
+                document.getElementById('keyConcepts').style.display = 'block';
+            } else {
+                document.getElementById('keyConcepts').style.display = 'none';
+            }
+
+            // Abnormal Causes
+            const abnormalCauses = document.getElementById('abnormalCauses');
+            abnormalCauses.innerHTML = '';
+            if (report.abnormal_causes && report.abnormal_causes.length > 0) {
+                document.getElementById('abnormalCausesSection').style.display = 'block';
+                report.abnormal_causes.forEach(item => {
+                    if (item.causes) {
+                        const div = document.createElement('div');
+                        div.className = 'causes-card';
+                        div.innerHTML = `
+                            <h4>${item.causes.title}</h4>
+                            <ul class="causes-list">
+                                ${item.causes.causes.map(c => `<li>${c}</li>`).join('')}
+                            </ul>
+                        `;
+                        abnormalCauses.appendChild(div);
+                    }
+                });
+            } else {
+                document.getElementById('abnormalCausesSection').style.display = 'none';
+            }
+
+            // Recommendations
+            const recommendations = document.getElementById('recommendations');
+            recommendations.innerHTML = '';
+            if (report.recommendations && report.recommendations.length > 0) {
+                report.recommendations.forEach(rec => {
+                    const div = document.createElement('div');
+                    div.className = 'recommendation-item';
+                    div.innerHTML = `
+                        <span class="icon">💡</span>
+                        <p>${rec}</p>
+                    `;
+                    recommendations.appendChild(div);
+                });
+            }
+        }
+
+        // Copy Report Summary
+        function copyReport() {
+            const summary = document.getElementById('summaryText').textContent;
+            const reportTitle = document.getElementById('reportTitle').textContent;
+            const overallMessage = document.getElementById('overallMessage').textContent;
+            
+            const textToCopy = `${reportTitle}\n\n${overallMessage}\n\nSummary: ${summary}`;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('Report summary copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+
+        // Clear Results
+        clearBtn.addEventListener('click', () => {
+            hideResults();
+            reportText.value = '';
+            selectedFileData = null;
+            fileInput.value = '';
+            selectedFile.classList.remove('show');
+            uploadBtn.disabled = true;
+            // Hide rich report
+            document.getElementById('richReport').style.display = 'none';
+        });
+
+        // Helper Functions
+        function setLoading(btn, spinner, isLoading) {
+            if (isLoading) {
+                btn.disabled = true;
+                spinner.style.display = 'block';
+            } else {
+                btn.disabled = false;
+                spinner.style.display = 'none';
+            }
+        }
+
+        function showError(message) {
+            errorText.textContent = message;
+            errorMessage.classList.add('show');
+        }
+
+        function hideError() {
+            errorMessage.classList.remove('show');
+        }
+
+        function hideResults() {
+            resultsSection.classList.remove('show');
+            document.getElementById('explanations').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

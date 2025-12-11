@@ -1,0 +1,151 @@
+{
+  "status": "ok",
+  "tests": [
+    {
+      "name": "Hemoglobin",
+      "value": 10.2,
+      "unit": "g/dL",
+      "status": "low",
+      "ref_range": {
+        "low": 12.0,
+        "high": 15.0
+      },
+      "category": "hematology",
+      "normalization_confidence": 0.89,
+      "parse_confidence": 0.85
+    },
+    {
+      "name": "White Blood Cell Count",
+      "value": 11200,
+      "unit": "/uL",
+      "status": "high",
+      "ref_range": {
+        "low": 4000,
+        "high": 11000
+      },
+      "category": "hematology",
+      "normalization_confidence": 0.92,
+      "parse_confidence": 0.88
+    },
+    {
+      "name": "Blood Glucose",
+      "value": 125,
+      "unit": "mg/dL",
+      "status": "high",
+      "ref_range": {
+        "low": 70,
+        "high": 100
+      },
+      "category": "metabolic",
+      "normalization_confidence": 0.90,
+      "parse_confidence": 0.87
+    },
+    {
+      "name": "Total Cholesterol",
+      "value": 220,
+      "unit": "mg/dL",
+      "status": "high",
+      "ref_range": {
+        "low": 0,
+        "high": 200
+      },
+      "category": "lipid",
+      "normalization_confidence": 0.88,
+      "parse_confidence": 0.86
+    }
+  ],
+  "summary": "Low hemoglobin, high white blood cell count, high blood glucose, and high total cholesterol. 5 other test(s) are normal.",
+  "explanations": [
+    {
+      "test_name": "Hemoglobin",
+      "status": "low",
+      "value": 10.2,
+      "unit": "g/dL",
+      "reference_range": {
+        "low": 12.0,
+        "high": 15.0
+      },
+      "explanation": "Low hemoglobin may indicate anemia, which can cause fatigue and weakness. Consult your doctor for proper evaluation."
+    },
+    {
+      "test_name": "White Blood Cell Count",
+      "status": "high",
+      "value": 11200,
+      "unit": "/uL",
+      "reference_range": {
+        "low": 4000,
+        "high": 11000
+      },
+      "explanation": "High WBC can occur with infections, inflammation, stress, or certain conditions. Only a doctor can determine the cause."
+    },
+    {
+      "test_name": "Blood Glucose",
+      "status": "high",
+      "value": 125,
+      "unit": "mg/dL",
+      "reference_range": {
+        "low": 70,
+        "high": 100
+      },
+      "explanation": "High blood glucose may indicate prediabetes or diabetes. Lifestyle changes and medical advice are recommended."
+    },
+    {
+      "test_name": "Total Cholesterol",
+      "status": "high",
+      "value": 220,
+      "unit": "mg/dL",
+      "reference_range": {
+        "low": 0,
+        "high": 200
+      },
+      "explanation": "High total cholesterol can increase heart disease risk. Dietary changes and exercise may help."
+    }
+  ],
+  "tests_summary": [
+    {
+      "name": "Hemoglobin",
+      "value": 10.2,
+      "unit": "g/dL",
+      "status": "low",
+      "reference_low": 12.0,
+      "reference_high": 15.0,
+      "category": "hematology"
+    },
+    {
+      "name": "White Blood Cell Count",
+      "value": 11200,
+      "unit": "/uL",
+      "status": "high",
+      "reference_low": 4000,
+      "reference_high": 11000,
+      "category": "hematology"
+    },
+    {
+      "name": "Blood Glucose",
+      "value": 125,
+      "unit": "mg/dL",
+      "status": "high",
+      "reference_low": 70,
+      "reference_high": 100,
+      "category": "metabolic"
+    },
+    {
+      "name": "Total Cholesterol",
+      "value": 220,
+      "unit": "mg/dL",
+      "status": "high",
+      "reference_low": 0,
+      "reference_high": 200,
+      "category": "lipid"
+    }
+  ],
+  "metadata": {
+    "extraction_confidence": 0.92,
+    "normalization_confidence": 0.90,
+    "total_tests_extracted": 19,
+    "total_tests_parsed": 19,
+    "total_tests_normalized": 18,
+    "failed_tests": [],
+    "guardrail_warnings": []
+  }
+}

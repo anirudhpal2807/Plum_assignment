@@ -1,0 +1,46 @@
+Biochemistry Lab Report
+Date: 12-08-2024
+Lab: Central Medical Diagnostics
+
+Patient: Sample Patient
+Age: 45 years
+Gender: Male
+
+TEST RESULTS:
+
+Complete Blood Count
+-------------------
+Hemoglobin: 10.5 g/dL (Low)
+Red Blood Cell Count: 4.1 million/uL (Normal)
+White Blood Cell Count: 13500 /uL (High)
+Platelet Count: 220000 /uL (Normal)
+Hematocrit: 38% (Normal)
+
+Blood Chemistry
+---------------
+Blood Glucose (Fasting): 135 mg/dL (High)
+Total Cholesterol: 240 mg/dL (High)
+LDL Cholesterol: 160 mg/dL (High)
+HDL Cholesterol: 38 mg/dL (Low)
+Triglycerides: 200 mg/dL (High)
+
+Liver Function Tests
+--------------------
+Aspartate Aminotransferase (AST): 48 U/L (High)
+Alanine Aminotransferase (ALT): 52 U/L (High)
+Alkaline Phosphatase: 110 U/L (Normal)
+Total Bilirubin: 0.9 mg/dL (Normal)
+
+Kidney Function Tests
+---------------------
+Creatinine: 1.0 mg/dL (Normal)
+Blood Urea Nitrogen (BUN): 16 mg/dL (Normal)
+
+Electrolytes
+------------
+Sodium: 140 mEq/L (Normal)
+Potassium: 4.3 mEq/L (Normal)
+Chloride: 103 mEq/L (Normal)
+Calcium: 9.2 mg/dL (Normal)
+
+Notes: Patient reports recent fever. Follow-up recommended for elevated lipid levels.

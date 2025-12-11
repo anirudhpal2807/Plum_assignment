@@ -1,0 +1,277 @@
+2025-12-08 22:56:57,942 - app.modules.ocr - WARNING - pytesseract not available. OCR from images will be limited.
+2025-12-08 22:57:34,710 - app.modules.ocr - WARNING - pytesseract not available. OCR from images will be limited.
+2025-12-08 22:58:16,450 - app.main - WARNING - No input provided to /simplify-report
+2025-12-08 22:58:16,451 - app.main - ERROR - HTTP Exception: Either 'text' or 'file' must be provided
+2025-12-08 22:58:17,783 - app.main - WARNING - No input provided to /simplify-report
+2025-12-08 22:58:17,783 - app.main - ERROR - HTTP Exception: Either 'text' or 'file' must be provided
+2025-12-08 22:58:18,511 - app.main - WARNING - No input provided to /simplify-report
+2025-12-08 22:58:18,511 - app.main - ERROR - HTTP Exception: Either 'text' or 'file' must be provided
+2025-12-08 23:00:58,770 - app.modules.ocr - WARNING - pytesseract not available. OCR from images will be limited.
+2025-12-08 23:10:26,755 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:10:26,764 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmp1b_hdah1.png
+2025-12-08 23:10:26,765 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmp1b_hdah1.png
+2025-12-08 23:10:27,201 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:10:27,201 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:10:27,202 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:10:27,203 - app.main - INFO - Request completed with status: error
+2025-12-08 23:16:09,391 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:16:09,392 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:16:09,395 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:16:09,430 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:16:09,435 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:16:09,436 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:16:17,932 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:16:17,932 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:16:17,932 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:16:17,933 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:16:17,934 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:16:17,934 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:16:19,132 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:16:19,132 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:16:19,132 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:16:19,133 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:16:19,133 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:16:19,133 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:16:19,332 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:16:19,334 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:16:19,334 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:16:19,335 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:16:19,336 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:16:19,337 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:16:45,198 - app.modules.ocr - WARNING - pytesseract not available. OCR from images will be limited.
+2025-12-08 23:16:50,737 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:16:50,737 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:16:50,739 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:16:50,741 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:16:50,741 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:16:50,741 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:16:51,381 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:16:51,382 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:16:51,382 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:16:51,384 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:16:51,385 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:16:51,386 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:16:51,901 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:16:51,901 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:16:51,902 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:16:51,903 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:16:51,903 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:16:51,903 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:16:52,076 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:16:52,076 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:16:52,076 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:16:52,077 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:16:52,077 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:16:52,077 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:16:52,243 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:16:52,243 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:16:52,243 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:16:52,244 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:16:52,245 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:16:52,245 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:22:11,160 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:22:11,160 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:22:11,160 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:22:11,161 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:22:11,161 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:22:11,162 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:22:11,820 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:22:11,821 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:22:11,821 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:22:11,822 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:22:11,823 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:22:11,823 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:22:32,722 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:22:32,722 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:22:32,723 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:22:32,723 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:22:32,724 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:22:32,724 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:22:35,962 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:22:35,963 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:22:35,963 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:22:35,965 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:22:35,965 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:22:35,966 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:22:41,787 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:22:41,787 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:22:41,788 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:22:41,789 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:22:41,789 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:22:41,789 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:23:21,726 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:23:21,726 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:23:21,727 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:23:21,729 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:23:21,730 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:23:21,731 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:23:22,804 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:23:22,805 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:23:22,805 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:23:22,806 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:23:22,806 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:23:22,806 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:23:23,334 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:23:23,334 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:23:23,334 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:23:23,336 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:23:23,336 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:23:23,336 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:23:23,524 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:23:23,525 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:23:23,525 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:23:23,525 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:23:23,526 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:23:23,526 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:23:27,261 - app.main - INFO - Processing text input (length: 964)
+2025-12-08 23:23:27,261 - app.modules.pipeline - INFO - Starting pipeline for text input
+2025-12-08 23:23:27,261 - app.modules.ocr - INFO - Extracting tests from plain text input
+2025-12-08 23:23:27,262 - app.modules.ocr - INFO - Extracted 0 test lines from text
+2025-12-08 23:23:27,262 - app.modules.pipeline - WARNING - No tests extracted from input
+2025-12-08 23:23:27,262 - app.main - INFO - Request completed with status: no_tests_found
+2025-12-08 23:25:21,057 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:25:21,060 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpq93846p7.png
+2025-12-08 23:25:21,060 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpq93846p7.png
+2025-12-08 23:25:21,383 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:25:21,384 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:25:21,384 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:25:21,385 - app.main - INFO - Request completed with status: error
+2025-12-08 23:25:52,095 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:25:52,096 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmp05a3zgmd.png
+2025-12-08 23:25:52,097 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmp05a3zgmd.png
+2025-12-08 23:25:52,439 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:25:52,439 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:25:52,440 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:25:52,440 - app.main - INFO - Request completed with status: error
+2025-12-08 23:25:53,223 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:25:53,225 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpwwce4xh5.png
+2025-12-08 23:25:53,225 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpwwce4xh5.png
+2025-12-08 23:25:53,552 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:25:53,552 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:25:53,554 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:25:53,554 - app.main - INFO - Request completed with status: error
+2025-12-08 23:25:55,039 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:25:55,041 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpux2tulcu.png
+2025-12-08 23:25:55,041 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpux2tulcu.png
+2025-12-08 23:25:55,380 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:25:55,380 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:25:55,380 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:25:55,382 - app.main - INFO - Request completed with status: error
+2025-12-08 23:26:44,838 - app.modules.ocr - WARNING - pytesseract not available. OCR from images will be limited.
+2025-12-08 23:28:59,502 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:28:59,505 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpd2n55me3.png
+2025-12-08 23:28:59,505 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpd2n55me3.png
+2025-12-08 23:28:59,895 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:28:59,895 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:28:59,895 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:28:59,896 - app.main - INFO - Request completed with status: error
+2025-12-08 23:29:00,599 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:29:00,600 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpz8kqwp46.png
+2025-12-08 23:29:00,601 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpz8kqwp46.png
+2025-12-08 23:29:00,967 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:29:00,968 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:29:00,969 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:29:00,969 - app.main - INFO - Request completed with status: error
+2025-12-08 23:29:07,390 - app.modules.ocr - WARNING - pytesseract not available. OCR from images will be limited.
+2025-12-08 23:30:02,534 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:30:02,537 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpw7ytsph6.png
+2025-12-08 23:30:02,538 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpw7ytsph6.png
+2025-12-08 23:30:02,883 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:30:02,884 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:30:02,884 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:30:02,885 - app.main - INFO - Request completed with status: error
+2025-12-08 23:30:03,339 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:30:03,342 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpscfsgqgy.png
+2025-12-08 23:30:03,342 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpscfsgqgy.png
+2025-12-08 23:30:03,679 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:30:03,679 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:30:03,680 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:30:03,681 - app.main - INFO - Request completed with status: error
+2025-12-08 23:34:19,037 - app.modules.ocr - WARNING - pytesseract not available. OCR from images will be limited.
+2025-12-08 23:36:49,788 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:36:49,791 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmp73ruwew8.png
+2025-12-08 23:36:49,791 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmp73ruwew8.png
+2025-12-08 23:36:50,202 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:36:50,202 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:36:50,203 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:36:50,203 - app.main - INFO - Request completed with status: error
+2025-12-08 23:36:50,314 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:36:50,317 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpsoucifcv.png
+2025-12-08 23:36:50,317 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpsoucifcv.png
+2025-12-08 23:36:50,758 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:36:50,759 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:36:50,759 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:36:50,760 - app.main - INFO - Request completed with status: error
+2025-12-08 23:36:56,616 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:36:56,617 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpq69ogj06.png
+2025-12-08 23:36:56,618 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpq69ogj06.png
+2025-12-08 23:36:57,035 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:36:57,036 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:36:57,036 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:36:57,037 - app.main - INFO - Request completed with status: error
+2025-12-08 23:36:57,965 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:36:58,046 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpaa0gh2uk.png
+2025-12-08 23:36:58,047 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpaa0gh2uk.png
+2025-12-08 23:36:58,497 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:36:58,497 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:36:58,498 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:36:58,498 - app.main - INFO - Request completed with status: error
+2025-12-08 23:41:01,880 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:41:01,881 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmp7krkdmc8.png
+2025-12-08 23:41:01,881 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmp7krkdmc8.png
+2025-12-08 23:41:02,204 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:41:02,204 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:41:02,206 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:41:02,206 - app.main - INFO - Request completed with status: error
+2025-12-08 23:46:43,043 - app.modules.ocr - WARNING - pytesseract not available. OCR from images will be limited.
+2025-12-08 23:47:15,021 - app.modules.ocr - WARNING - pytesseract not available. OCR from images will be limited.
+2025-12-08 23:47:22,065 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:47:22,071 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmp79azhzl5.png
+2025-12-08 23:47:22,072 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmp79azhzl5.png
+2025-12-08 23:47:22,491 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:47:22,492 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:47:22,493 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:47:22,494 - app.main - INFO - Request completed with status: error
+2025-12-08 23:47:22,734 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:47:22,736 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmp48u4kshj.png
+2025-12-08 23:47:22,737 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmp48u4kshj.png
+2025-12-08 23:47:23,204 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:47:23,204 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:47:23,205 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:47:23,205 - app.main - INFO - Request completed with status: error
+2025-12-08 23:47:47,619 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:47:47,621 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpo8mw6xl4.png
+2025-12-08 23:47:47,621 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpo8mw6xl4.png
+2025-12-08 23:47:48,018 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:47:48,019 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:47:48,019 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:47:48,020 - app.main - INFO - Request completed with status: error
+2025-12-08 23:54:43,931 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:54:43,936 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpeqch52rn.png
+2025-12-08 23:54:43,937 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpeqch52rn.png
+2025-12-08 23:54:44,303 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:54:44,303 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:54:44,305 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:54:44,306 - app.main - INFO - Request completed with status: error
+2025-12-08 23:54:48,050 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:54:48,051 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmppf67vpt8.png
+2025-12-08 23:54:48,051 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmppf67vpt8.png
+2025-12-08 23:54:48,408 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:54:48,408 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:54:48,409 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:54:48,409 - app.main - INFO - Request completed with status: error
+2025-12-08 23:59:25,380 - app.modules.ocr - WARNING - pytesseract not available. OCR from images will be limited.
+2025-12-08 23:59:38,322 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-08 23:59:38,324 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpmjoki9u_.png
+2025-12-08 23:59:38,324 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpmjoki9u_.png
+2025-12-08 23:59:38,666 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-08 23:59:38,667 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:59:38,667 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-08 23:59:38,668 - app.main - INFO - Request completed with status: error
+2025-12-09 00:01:05,242 - app.main - INFO - Processing file: Screenshot 2025-12-08 230949.png
+2025-12-09 00:01:05,245 - app.modules.pipeline - INFO - Starting pipeline for image: C:\Users\DELL\AppData\Local\Temp\tmpdcwpo03m.png
+2025-12-09 00:01:05,245 - app.modules.ocr - INFO - Extracting text from image: C:\Users\DELL\AppData\Local\Temp\tmpdcwpo03m.png
+2025-12-09 00:01:05,570 - app.modules.ocr - DEBUG - Image preprocessing completed
+2025-12-09 00:01:05,571 - app.modules.ocr - WARNING - Tesseract not available. Install via: https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-09 00:01:05,571 - app.modules.pipeline - ERROR - OCR failed: Tesseract OCR not installed. Please install from https://github.com/UB-Mannheim/tesseract/wiki
+2025-12-09 00:01:05,572 - app.main - INFO - Request completed with status: error
